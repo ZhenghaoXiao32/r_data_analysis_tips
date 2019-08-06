@@ -35,3 +35,10 @@ df$col3[is.na(df$col4)] <- mean(df$col4, na.rm = TRUE)
 ### Get the column number given the column name
 which(colnames(data) == "C")
 
+### Get col names excluding some cols
+cov_names <- subset(colnames(data), !(colnames(data) %in% c("C", "D")))
+
+### Get P-value from glm summary
+coef(summary(glm_model))[,4]
+
+
