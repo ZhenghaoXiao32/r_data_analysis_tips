@@ -27,10 +27,13 @@ df <- data_frame(col1 = c(1, 2, 3, 0),
 
 #change 0 in a given column to NA
 df$col3 <- na_if(df$col3, 0)
+#or
+df$col3[df$col3 == 0] <- NA
+
 #change a give number to NA for all observations in the data frame
 df[df == 1] <- NA
 #replace NAs in a column with mean of all observations in the column
-df$col3[is.na(df$col4)] <- mean(df$col4, na.rm = TRUE)
+df$col3[is.na(df$col3)] <- mean(df$col3, na.rm = TRUE)
 
 ### Get the column number given the column name
 which(colnames(data) == "C")
